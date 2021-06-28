@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en-us'}}">
+
+  {% include head.html %}
+
+  {% include custom-bg.html %}
+
+  <body class="{{ page.layout }}{% if page.url == '/' %} home{% endif %}">
+
+    {% include sidebar.html %}
+
+    <main class="container">
+      {{ content }}
+
+    </main>
+
+    <script>
+      var divs = $('.container');
+      $(window).on('scroll', function() {
+         var st = $(this).scrollTop();
+         divs.css({ 'opacity' : (1 - st/($(document).height() - $(this).height())) });
+      });
+    </script>  
+
+    {% include custom-foot.html %}
+  </body>
+
+</html>
