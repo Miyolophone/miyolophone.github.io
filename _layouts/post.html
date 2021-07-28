@@ -13,6 +13,12 @@ layout: default
     {% include post-tags.html post=page %}
   </div>
 
+  <script>
+    $(document).ready(function() { 
+          $('.content').fadeTo(700, 1);
+        });
+  </script>
+
   {% include comments.html %}
   {% include related_posts.html %}
 </div>

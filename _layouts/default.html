@@ -12,15 +12,48 @@
     <main class="container">
       {{ content }}
 
+      <p class="content bookend">(Scroll down for full background.)</p>
+
     </main>
 
     <script>
-      var divs = $('.container');
-      $(window).on('scroll', function() {
-         var st = $(this).scrollTop();
-         divs.css({ 'opacity' : (1 - st/($(document).height() - $(this).height())) });
+      $(document).ready(function() {
+        $(this).scrollTop(0);
+        $('.custom-bg').fadeTo(700, 1);
+        // TODO: fix init offset
+        $('.custom-bg').offset({top: -50, left: -80});
       });
-    </script>  
+
+      $(window).on('scroll', function() {
+        var alpha = getOpacity(this);
+        $('.container').css({ 'opacity' : alpha });
+        $('.custom-bg').css({'filter' : 'brightness(' + (1 - alpha/2) + ')'});
+      });
+
+      $(window).on('mousemove', function(event) {
+          bgReposition('#layer1', event, 5);
+          bgReposition('#layer2', event, 7);
+          bgReposition('#layer3', event, 12);
+          bgReposition('#layer4', event, 20);
+          bgReposition('#layer5', event, 30);
+      });
+
+      function getOpacity(target) {
+        return (1 - $(target).scrollTop()/($(document).height() - $(target).height()));
+      }
+
+      function bgReposition(target, event, pc) {
+          x_off = -80;
+          y_off = -50;
+          var p_coeff = pc; // parallax scale factor
+          var win_coeff = 1 + p_coeff * 0.00139; // window size correction factor to keep page centered
+          var w = $(window).width();
+          var h = $(window).height();
+          var x = p_coeff * (w - 2 * event.pageX) / w + x_off;
+          var y = (p_coeff/2) * (h - 2 * event.pageY) / h + win_coeff * $(window).scrollTop() + y_off;
+          $(target).offset({top: y, left: x});
+      }
+    </script>
 
     {% include custom-foot.html %}
   </body>

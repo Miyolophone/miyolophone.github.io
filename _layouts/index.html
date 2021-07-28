@@ -3,6 +3,13 @@ layout: default
 ---
 
 <div class="content">
+
+  <script>
+    $(document).ready(function() { 
+          $('.content').fadeTo(700, 1);
+        });
+  </script>
+
   {% include pagination-newer.html %}
 
   {{ content }}

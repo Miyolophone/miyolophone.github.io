@@ -7,5 +7,10 @@ layout: default
 </header>
 <div class="content">
   {{ content }}
+  <script>
+    $(document).ready(function() { 
+          $('.content').fadeTo(700, 1);
+        });
+  </script>
 </div>
 {% include back-link.html %}

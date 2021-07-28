@@ -130,9 +130,11 @@ input[type='submit'] {
 
 // custom background configuration
 .custom-bg {
+  opacity: 0;
   z-index: -1;
   position: fixed;
-  // bottom: 0%;
+  transform: scale(1.1, 1.1);
+  filter: brightness(0.5);
   left: 0%;
   object-fit: cover;
   width: 100%;

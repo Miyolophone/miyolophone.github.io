@@ -13,7 +13,7 @@ $cyan: #75b5aa !default;
 $blue: #268bd2 !default;
 $brown: #8f5536 !default;
 
-$root-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif !default;
+$root-font-family: 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif !default;
 $root-font-size: 1rem !default;
 $root-line-height: 1.5 !default;
 
@@ -44,12 +44,12 @@ $code-font-family: Menlo, Monaco, 'Courier New', monospace !default;
 $code-color: #bf616a !default;
 
 // Hyde theming
-$sidebar-bg-color: #090d12 !default;
+$sidebar-bg-color: #192335 !default;
 $sidebar-fg-color: rgb(255, 255, 255) !default;
 $sidebar-sticky: true !default;
 $layout-reverse: false !default;
 
 $sidebar-title-color: $sidebar-fg-color !default;
 $sidebar-link-color: $sidebar-fg-color !default;
-$sidebar-text-color: rgba($sidebar-fg-color, 0.75) !default;
+$sidebar-text-color: rgba($sidebar-fg-color, 1) !default;
 $sidebar-icon-color: rgba($sidebar-fg-color, 0.85) !default;

@@ -34,17 +34,12 @@ body {
   min-height: 100vh;
 }
 
-div {
-  // TODO: fade in opacity
-  opacity: 1;
-}
-
 #sidebar {
   flex: 0 0 auto;
   padding: $section-spacing;
 
   .site-title {
-    font-family: 'Abril Fatface', serif;
+    font-family: 'Rakkas', serif;
     font-size: $large-font-size;
     font-weight: normal;
     margin-bottom: $heading-spacing;
@@ -63,12 +58,14 @@ div {
 // Container is flexbox as well -- we want content div to stretch and fill
 .container {
   display: flex;
+  
   flex: 1 1 auto;
   flex-direction: column;
   // TODO: fix container shape
   // clip-path: $container-shape;
   
   > .content {
+    opacity: 0;
     flex-grow: 1;
     padding-bottom: $section-spacing * 2;
   }
@@ -209,7 +206,6 @@ div {
   // Make entire container background white to contrast against sidebar
   .container {
     background: $body-bg;
-
     color: $body-color;
     min-height: 100vh;
     padding:
@@ -217,7 +213,6 @@ div {
       $section-spacing * 2
       0;
 
-      // TODO: margins?
     @if $layout-reverse {
       margin-right: $sidebar-width;
     }
