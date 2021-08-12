@@ -61,8 +61,6 @@ body {
   
   flex: 1 1 auto;
   flex-direction: column;
-  // TODO: fix container shape
-  // clip-path: $container-shape;
   
   > .content {
     opacity: 0;

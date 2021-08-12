@@ -1,22 +1,28 @@
 <nav id="sidebar-icon-links">
-  {% if site.hydeout.repo %}
-    <a id="github-link"
-       class="icon" title="Github Project" aria-label="Github Project"
-       href="{{ site.hydeout.repo }}">
-      {% include svg/github.svg %}
-    </a>
-    <a id="github-download-link"
-       class="icon" title="Download" aria-label="Download"
-       href="{{ site.hydeout.repo }}/archive/v{{ site.hydeout.version }}.zip">
-      {% include svg/download.svg %}
-    </a>
-  {% endif %}
-
-  <a id="subscribe-link"
-     class="icon" title="Subscribe" aria-label="Subscribe"
-     href="{{ site.feed.path | default: 'feed.xml' | relative_url }}">
-    {% include svg/feed.svg %}
+  <a id="twitter"
+       class="icon" title="Twitter" aria-label="Twitter"
+       href="{{ site.author.twitter }}">
+      {% include svg/twitter.svg %}
   </a>
+
+  <a id="bandcamp"
+       class="icon" title="Bandcamp" aria-label="Bandcamp"
+       href="{{ site.author.bandcamp }}">
+       <img src="/assets/img/bandcamp.png" style="width: 28px; height:auto">
+  </a>
+
+  <a id="newgrounds"
+       class="icon" title="Newgrounds" aria-label="Newgrounds"
+       href="{{ site.author.newgrounds }}">
+       <img src="/assets/img/newgrounds.png" style="width: 30px; height:auto">
+  </a>
+
+  <a id="soundcloud"
+       class="icon" title="SoundCloud" aria-label="SoundCloud"
+       href="{{ site.author.soundcloud }}">
+       <img src="/assets/img/soundcloud.png" style="width: 38px; height:auto">
+  </a>
+
 
   {% comment %}
     Check if we have tag or search pages page active before linking to it.

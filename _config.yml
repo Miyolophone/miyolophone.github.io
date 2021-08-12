@@ -4,7 +4,7 @@ highlighter:      rouge
 
 # Setup
 title:            Miyolophone
-tagline:          'A Jekyll theme'
+tagline:          ''
 description:      'composer for film, video games, classical musicians, virtual idols'
 url:              'miyolophone.com'
 baseurl:          ''
@@ -15,10 +15,14 @@ baseurl:          ''
                   # sidebar_blog_link below.
 
 author:
-  name:           'Andrew Fong'
-  url:            https://twitter.com/fongandrewc
+  name:           'Miyolophone'
+  twitter:        https://twitter.com/Miyolophone 
+  bandcamp:       https://miyolophone.bandcamp.com/
+  soundcloud:     https://soundcloud.com/Miyolophone
+  youtube:        https://www.youtube.com/c/Miyolophone
+  newgrounds:     https://miyolophone.newgrounds.com/
 
-paginate:         5
+paginate:         1
 # paginate_path:    '/page:num'
                     # Or '/blog/page:num' if you want to move your index pages
 

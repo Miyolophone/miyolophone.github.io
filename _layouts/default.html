@@ -11,23 +11,13 @@
 
     <main class="container">
       {{ content }}
-
-      <p class="content bookend">(Scroll down for full background.)</p>
-
     </main>
 
     <script>
       $(document).ready(function() {
         $(this).scrollTop(0);
         $('.custom-bg').fadeTo(700, 1);
-        // TODO: fix init offset
-        $('.custom-bg').offset({top: -50, left: -80});
-      });
-
-      $(window).on('scroll', function() {
-        var alpha = getOpacity(this);
-        $('.container').css({ 'opacity' : alpha });
-        $('.custom-bg').css({'filter' : 'brightness(' + (1 - alpha/2) + ')'});
+        $('.custom-bg').offset({top: -50, left: -75});
       });
 
       $(window).on('mousemove', function(event) {
@@ -37,10 +27,6 @@
           bgReposition('#layer4', event, 20);
           bgReposition('#layer5', event, 30);
       });
-
-      function getOpacity(target) {
-        return (1 - $(target).scrollTop()/($(document).height() - $(target).height()));
-      }
 
       function bgReposition(target, event, pc) {
           x_off = -80;
