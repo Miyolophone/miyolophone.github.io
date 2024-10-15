@@ -1,0 +1,183 @@
+:root {
+    --randomRotateZ: 0deg;
+}
+
+body {
+    color: rgb(38, 40, 43);
+    font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+}
+
+/* top bar */
+.top-bar {
+    height: 5rem;
+    background-color: lavender;
+}
+
+.main-layout {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+/* left side (logo) */
+.home-logo {
+    position: relative;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    align-content: center;
+    text-align: center;
+
+    animation:
+    fade-down-big 2s forwards,
+    drift-big ease-in-out 3.5s infinite;
+    flex: 1 1 40%;
+}
+
+.home-logo-image {
+    position: relative;
+    height: var(--height);
+    width: var(--height);
+    margin: auto;
+
+    transform-style: preserve-3d;
+    transform:
+        perspective(2000px)
+        rotateX(var(--rotateY))
+        rotateY(var(--rotateX));
+    transition: all 100ms ease;
+}
+
+.front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-image: url(../img/safcovertemp.png);
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-image: var(--randomBG);
+    background-size: cover;
+    background-position: center;
+    border-width: 1rem;
+    border-color: black;
+    transform: rotateY(180deg);
+}
+
+/* right side (logo text, flavor text) */
+.home-text {
+    flex: 1 1 60%;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 7rem;
+    text-align: center;
+    margin: 0rem;
+}
+
+.title p {
+    opacity: 0%;
+    margin-top: 0rem;
+    margin-bottom: -1rem;
+    animation:
+        fade-down-big 1.5s forwards,
+        drift-big ease-in-out 3s infinite;
+}
+
+.flavor-text {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.flavor-text p {
+    opacity: 0%;
+    margin: 0.2rem;
+    animation:
+        fade-down-small 1.5s forwards,
+        drift-small ease-in-out 4s infinite;
+}
+
+.spin { 
+    height: 21rem;
+    animation: spin cubic-bezier(.19,1,.62,1) 4s;
+}
+
+/* KEYFRAME S*/
+@keyframes fade-in {
+    0% {
+        opacity: 0%;
+    } 
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes fade-down-big {
+    0% {
+        opacity: 0%;
+        transform: translateY(-40px);
+    } 
+    100% {
+        opacity: 100%;
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes fade-down-small {
+    0% {
+        opacity: 0%;
+        transform: translateY(-10px);
+    } 
+    100% {
+        opacity: 100%;
+        transform: translateY(-1px);
+    }
+}
+
+@keyframes drift-big {
+    50% {
+        transform: translateY(6px);
+    } 
+}
+
+@keyframes drift-small {
+    50% {
+        transform: translateY(3px);
+    } 
+}
+
+
+@keyframes spin {
+    0% {
+        transform: perspective(2000px) rotateZ(var(--randomRotateZ)) rotateY(0deg);
+    } 
+    100% {
+        transform: perspective(2000px) rotateZ(0deg) rotateY(1080deg);
+    }
+}
+
+.title p:nth-child(1) { animation-delay: 200ms; }
+.title p:nth-child(2) { animation-delay: 350ms; }
+.title p:nth-child(3) { animation-delay: 500ms; }
+
+.flavor-text p:nth-child(1) { animation-delay: 1.5s; }
+.flavor-text p:nth-child(2) { animation-delay: 2s; }
+
+
+
