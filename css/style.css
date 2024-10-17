@@ -4,29 +4,30 @@
 
 html {
     background-color: rgb(98, 142, 221);
-
-}
-
-body {
-    /* background: linear-gradient(135deg, rgb(98, 142, 221), rgb(64, 119, 223)); */
     min-height: 100vh;
     color: white;
     font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
 }
 
-/* header and footer */
+body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* header, filler, footer */
 .header {
     display: flex;
 
     height: 40px;
     margin: 0px;
     padding: 10px;
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
 
     animation: fade-down-small 1.5s forwards;
 }
 
 .ui-left {
-    font-size: 1.5rem;
     font-weight: 500;
     font-style: italic;
     letter-spacing: 0.2rem;
@@ -42,7 +43,6 @@ body {
 }
 
 .ui-right-1, .ui-right-2 {
-    font-size: 1.5rem;
     font-weight: 200;
     font-style: italic;
     letter-spacing: 0rem;
@@ -52,14 +52,6 @@ body {
     flex: 1 1 12%;
 }
 
-.footer {
-    height: 30px;
-    padding: 5px;
-    font-weight: 200;
-    align-content: center;
-    text-align: center;
-}
-
 .header a {
     color: white;
     text-decoration: none;
@@ -67,16 +59,29 @@ body {
 }
 
 .header a:hover {
-    font-size: 1.6rem;
+    font-size: 110%;
 }
 
 .ui-left, .ui-right-1, .ui-right-2 {
     animation: drift3 ease-in-out 4s infinite;
 }
 
-.ui-left { animation-delay: -900ms;}
-.ui-right-1 { animation-delay: -600ms;}
-.ui-right-2 { animation-delay: -300ms;}
+.ui-left { animation-delay: -900ms; min-width: 14ch;}
+.ui-right-1 { animation-delay: -600ms; min-width: 7ch;}
+.ui-right-2 { animation-delay: -300ms; min-width: 12ch;}
+
+.filler {
+    height: 170px;
+}
+
+.footer {
+    height: 30px;
+    padding: 5px;
+    font-weight: 200;
+    font-size: 1rem;
+    align-content: center;
+    text-align: center;
+}
 
 
 /* main layout */
@@ -84,21 +89,20 @@ body {
 .main-layout {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 70px;
-    padding-bottom: 80px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-top: 5vw;
+    padding-bottom: 10vh;
 }
 
 /* left side (logo) */
 
 .home-logo-outer {
     position: relative;
-    padding-top: 20px;
-    padding-bottom: 20px;
     align-content: center;
     text-align: center;
-
+    min-height: 50vh;
+    min-width: 380px;
     flex: 1 1 40%;
 
     animation:
@@ -156,15 +160,15 @@ body {
 
 .title {
     font-weight: 900;
-    font-size: 7rem;
+    font-size: clamp(4rem, 12vw, 7rem);
     letter-spacing: -0.2rem;
     text-align: center;
     margin: 0px;
 }
 
 .t1, .t2, .t3 {
-    margin-top: -100px;
-    margin-bottom: -125px;
+    margin-top: -1em;
+    margin-bottom: -1em;
     animation: fade-down-big 1.5s forwards;
     opacity: 0%;
 }
@@ -183,7 +187,7 @@ body {
 .flavor-text {
     font-style: italic;
     font-weight: 300;
-    font-size: 1rem;
+    font-size: clamp(0.7rem, 2.2vw, 1rem);
     text-align: center;
     margin: 0px;
     padding-top: 10px;
@@ -206,6 +210,7 @@ body {
 /* ANIMATION CLASSES */
 .spin { 
     height: 340px;
+    width: 340px;
     animation: spin cubic-bezier(.19,1,.62,1) 2.5s;
 }
 

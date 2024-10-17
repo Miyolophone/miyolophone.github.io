@@ -27,21 +27,26 @@ const logo = document.querySelector(".home-logo-image");
 const originalClass = logo.className;
 var isHovering = false;
 var isSpinning = false;
-var logoHeight = 310;
-var zoomFactor = 30;
-logo.style.setProperty("--height", logoHeight + "px");
+var logoHeight = 300;
+var zoomFactor = 20;
+
+function setLogoHeight(h) {
+    logo.style.setProperty("--height", h + "px");
+};
+
+setLogoHeight(logoHeight);
 
 //checks if hovering over logo
 logo.addEventListener("mouseover", event => {
     isHovering = true;
-    logo.style.setProperty("--height", logoHeight + zoomFactor + "px");
+    setLogoHeight(logoHeight + zoomFactor);
 });
 logo.addEventListener("mouseout", event => {
     isHovering = false;
     logo.style.setProperty("--rotateX", 0);
     logo.style.setProperty("--rotateY", 0);
     if (!isSpinning) {
-        logo.style.setProperty("--height", logoHeight + "px");
+        setLogoHeight(logoHeight);
     }
 });
 
@@ -54,14 +59,16 @@ logo.addEventListener("click", event => {
     document.documentElement.style.setProperty('--randomRotateZ', r + 'deg');
     logo.addEventListener("animationend", event => {
         logo.className = originalClass;
+
         //re-randomize z rotation and bg image
         r = Math.round(Math.random() * 20) - 10;
         document.querySelector(".back").style.setProperty("--randomBG", "url(" + backurlsArr[
             Math.round(Math.random() * 100) % backurlsArr.length]
         + ")");
+
         isSpinning = false;
         if (!isHovering) {
-            logo.style.setProperty("--height", logoHeight + "px");
+            setLogoHeight(logoHeight);
         }
     });
 });
