@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miyolophone</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="ui-left">
+            <a href="../index.html">Miyolophone</a>
+        </div>
+        <div class="ui-center"></div>
+        <div class="ui-right-1"><a href="about.html">about</a></div>
+        <div class="ui-right-2"><a href="commissions.html">commissions</a></div>
+    </div>
+
+    <div class="main-layout">
+        <div class="home-text">
+            <div class="title">
+                <div class="t1">
+                    <div class="innertitle1">
+                        <p>COMMISSIONS</p>
+                    </div>
+                </div>
+                <div class="t2">
+                    <div class="innertitle2">
+                        <p>CLOSED.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flavor-text">
+                <div class="ft1">
+                    <div class="innerft1" style="font-size: larger;">nice try!</div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    
+    <div class="footer">
+        © 2024 Miyolophone
+    </div>
+
+</body>
+
+
+<script>
+    const pressed = ['','','','','','','','','','',''];
+    const secretCode = 'ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightbaEnter'
+    const secretMessages = [
+        "DO NOT EMAIL ME FOR ANYTHING EVER AGAIN.",
+        "SERIOUSLY."
+    ];
+    var i = 0;
+
+
+    const html = document.querySelector("html");
+    const ft = document.querySelector(".innerft1");
+
+    window.addEventListener("keyup", (e) => {
+        pressed.push(e.key);
+        pressed.shift();
+        pressedJoin = pressed.join('');
+
+        if (pressedJoin == secretCode) {
+            html.style.setProperty("transition", "2s");
+            html.style.setProperty("background-color", "rgb(222, 51, 51)");
+            ft.style.setProperty("transition", "1s");
+            ft.style.setProperty("opacity", "0%");
+            setTimeout(() => {
+                ft.innerHTML = secretMessages[i];
+                i = (i - 1) * -1;
+                ft.style.setProperty("opacity", "100%");
+            }, 1000);
+        }
+    });
+</script>
+
+
+</html>

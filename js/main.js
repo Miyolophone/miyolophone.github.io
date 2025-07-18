@@ -1,9 +1,15 @@
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
+
 //RANDOM TEXT AND LOGO BACK
 const flavortextArr = new Array(
-    ["<p>you're here early...!</p>", "<p>the show will begin shortly.</p>"],
     ["<p>i'll be ready in a minute!</p>","<p>don't go anywhere, okay?</p>"],
-    ["<p>wow, you're here already?</p>", "<p>you just couldn't wait to see me, huh...</p>"],
-    ["<p>we're both pretty early...</p>", "<p>b-but i was here first, okay!?</p>"]
+    ["<p>we're both pretty early...</p>", "<p>b-but i was here first, okay!?</p>"],
+    ["<p>you're here early...!</p>", "<p>the show will begin shortly.</p>"],
+    ["<p>wow, you're already here?</p>", "<p>you just couldn't wait to see me, huh...</p>"],
+    ["<p>ugh, is it time already!?</p>", "<p>let me sleep another couple minutes...</p>"],
+    ["<p>sorry to keep you waiting...</p>", "<p>i'll make it up to you, i promise!</p>"],
 );
 
 const backurlsArr = new Array(

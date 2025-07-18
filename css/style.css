@@ -1,3 +1,6 @@
+@import url(https://use.typekit.net/mnr2xcj.css);
+
+/* base setup */
 :root {
     --randomRotateZ: 0deg;
 }
@@ -6,7 +9,7 @@ html {
     background-color: rgb(98, 142, 221);
     min-height: 100vh;
     color: white;
-    font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+    font-family: Nobel, sans-serif;
 }
 
 body {
@@ -15,39 +18,83 @@ body {
     position: relative;
 }
 
+body div {
+    align-items: center;
+}
+
+img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* container, background animation */
+.container {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.background {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -5;
+    animation: fall1 linear 1.4s forwards;
+}
+
+.background img {
+    position: relative;
+    width: 100%;
+    height: 3000px;
+}
+
+.foreground{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+
 /* header, filler, footer */
 .header {
     display: flex;
-
-    height: 40px;
+    height: 11vh;
     margin: 0px;
-    padding: 10px;
-    font-size: clamp(1rem, 2.5vw, 1.6rem);
+    padding-left: 15px;
+    padding-right: 15px;
+    
 
     animation: fade-down-small 1.5s forwards;
 }
 
 .ui-left {
-    font-weight: 500;
-    font-style: italic;
-    letter-spacing: 0.2rem;
+    font-family: 'TT Ricks Medium';
+    letter-spacing: 0.1rem;
+    font-size: clamp(1.8rem, 2.5vw, 2.6rem);
 
-    align-content: center;
     text-align: center;
 
-    flex: 1 1 16%;
+    flex: 1 1 14%;
 }
 
 .ui-center {
-    flex: 1 1 60%;
+    flex: 1 1 58%;
 }
 
 .ui-right-1, .ui-right-2 {
-    font-weight: 200;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 100;
     font-style: italic;
     letter-spacing: 0rem;
     text-align: center;
-    align-content: center;
 
     flex: 1 1 12%;
 }
@@ -70,40 +117,38 @@ body {
 .ui-right-1 { animation-delay: -600ms; min-width: 7ch;}
 .ui-right-2 { animation-delay: -300ms; min-width: 12ch;}
 
-.filler {
-    height: 170px;
-}
-
 .footer {
-    height: 30px;
-    padding: 5px;
-    font-weight: 200;
+    height: 5vh;
+    padding: 0px;
+    font-family: 'Nobel Light';
     font-size: 1rem;
-    align-content: center;
     text-align: center;
+    animation: fade-down-small 1.5s forwards;
 }
 
 
-/* main layout */
+/* hero layout */
 
-.main-layout {
+.hero-layout {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 5vw;
-    padding-right: 5vw;
-    padding-top: 5vw;
-    padding-bottom: 10vh;
+    height: 90vh;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
+
 
 /* left side (logo) */
 
 .home-logo-outer {
-    position: relative;
-    align-content: center;
     text-align: center;
-    min-height: 50vh;
-    min-width: 380px;
+    min-height: 360px;
+    min-width: 360px;
+    flex-direction: column;
     flex: 1 1 40%;
+    align-content: center;
 
     animation:
     fade-down-big-2 2s forwards;
@@ -159,16 +204,12 @@ body {
 }
 
 .title {
-    font-weight: 900;
-    font-size: clamp(4rem, 12vw, 7rem);
-    letter-spacing: -0.2rem;
+    margin: auto;
     text-align: center;
-    margin: 0px;
 }
 
 .t1, .t2, .t3 {
-    margin-top: -1em;
-    margin-bottom: -1em;
+    margin-bottom: -40px;
     animation: fade-down-big 1.5s forwards;
     opacity: 0%;
 }
@@ -177,7 +218,17 @@ body {
 .innertitle2 { animation: driftZ1 ease-in-out 1.2s infinite; }
 .innertitle3 { animation: driftZ1 ease-in-out .7s infinite; }
 
-.innertitle1 p, .innertitle2 p, .innertitle3 p { animation: drift1 ease-in-out 3s infinite; }
+.innertitle1 img, .innertitle2 img, .innertitle3 img {
+    width: 500px;
+    height: auto;
+    animation: drift1 ease-in-out 3s infinite;
+}
+
+.innertitle1 p, .innertitle2 p, .innertitle3 p {
+    font-size: 8rem;
+    margin-top: 2rem;
+    margin-bottom: 0rem;
+}
 
 .t1, .innertitle1 p { animation-delay: 200ms;}
 .t2, .innertitle2 p { animation-delay: 350ms;}
@@ -185,18 +236,19 @@ body {
 
 
 .flavor-text {
+    font-family: 'Nobel Book';
     font-style: italic;
-    font-weight: 300;
-    font-size: clamp(0.7rem, 2.2vw, 1rem);
+    font-size: clamp(0.9rem, 2.2vw, 1.2rem);
     text-align: center;
     margin: 0px;
+    margin-top: 40px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
 .ft1, .ft2 {
     opacity: 0%;
-    margin-bottom: -10px;
+    margin-bottom: -1rem;
     animation: fade-down-small 2s forwards;
 }
 
@@ -207,7 +259,73 @@ body {
 .ft1, .innerft1 { animation-delay: 1.2s;}
 .ft2, .innerft2 { animation-delay: 2s;}
 
+/* non-home-page layout */
+.main-layout {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.titletext {
+    display: flex;
+    margin: 10px;
+    letter-spacing: .1rem;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.titleword1a, .titleword2a, .titleword3a {
+    opacity: 0%;
+    font-family: 'TT Ricks Medium';
+    font-size: clamp(1rem, 10vw, 8rem);
+    margin-left: clamp(1rem, 1.5vw, 6rem);
+    animation: fade-down-big 1.5s forwards;
+}
+
+.titleword2a {
+    font-family: 'TT Ricks';
+    animation: fade-down-big-2 1.5s forwards;
+    animation-delay: 200ms;
+}
+
+.titleword1b, .titleword3b { animation: drift1 ease-in-out 4s infinite; }
+.titleword2b { animation: drift2 ease-in-out 4s infinite; }
+
+.titleword3a { animation-delay: 400ms; }
+.titleword2b { animation-delay: 400ms; }
+.titleword3b { animation-delay: 800ms; }
+
+
+.content-wrapper {
+    opacity: 0%;
+    animation: fade-up 1.5s forwards;
+    animation-delay: 500ms;
+}
+
+.content-edge {
+    width: 100%;
+}
+
+.content-edge img {
+    width: 100%;
+    height: 75px;
+    margin-bottom: -4px;
+    margin-top: 0px;
+}
+
+.content-block {
+    background-color: white;
+    color: black;
+    font-size: clamp(0.9rem, 2.2vw, 1.2rem);
+    padding-right: 10rem;
+    padding-left: 10rem;
+    width: 100% - 20rem;
+    padding-bottom: 4rem;
+    margin-top: -80px;
+}
+
+
 /* ANIMATION CLASSES */
+
 .spin { 
     height: 340px;
     width: 340px;
@@ -227,7 +345,21 @@ body {
 }
 
 
-/* KEYFRAME S*/
+/* KEYFRAMES*/
+@keyframes fall1 {
+    0% {
+        opacity: 0%;
+        transform: translateY(2500px);
+    }
+    50% {
+        opacity: 100%;
+    } 
+    100% {
+        transform: translateY(-2000px);
+        opacity: 0%;
+    }
+}
+
 @keyframes fade-in {
     0% {
         opacity: 0%;
@@ -247,7 +379,7 @@ body {
     100% {
         opacity: 100%;
         transform:
-            translateY(-3px)
+            translateY(0px)
             rotateZ(1deg);;
         
     }
@@ -263,8 +395,8 @@ body {
     100% {
         opacity: 100%;
         transform:
-            translateY(-3px)
-            rotateZ(-1deg);;
+            translateY(0px)
+            rotateZ(-1deg);
         
     }
 }
@@ -273,6 +405,17 @@ body {
     0% {
         opacity: 0%;
         transform: translateY(-10px);
+    } 
+    100% {
+        opacity: 100%;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes fade-up {
+    0% {
+        opacity: 0%;
+        transform: translateY(30px);
     } 
     100% {
         opacity: 100%;
@@ -330,31 +473,25 @@ body {
 
 @keyframes driftZ1 {
     0% {
-        transform:
-        rotateZ(-.5deg)
+        transform: rotateZ(-.5deg)
     }
     50% {
-        transform:
-        rotateZ(.5deg)
+        transform: rotateZ(.5deg)
     } 
     100% {
-        transform:
-        rotateZ(-.5deg)
+        transform: rotateZ(-.5deg)
     }
 }
 
 @keyframes driftZ2 {
     0% {
-        transform:
-        rotateZ(-1deg)
+        transform: rotateZ(-1deg)
     }
     50% {
-        transform:
-        rotateZ(1deg)
+        transform: rotateZ(1deg)
     } 
     100% {
-        transform:
-        rotateZ(-1deg)
+        transform: rotateZ(-1deg)
     }
 }
 
